@@ -51,10 +51,10 @@ var projectPath = {
     html: 'src/*.html',
     js: 'src/js/**/*.js',
     style: 'src/css/**/*.less',
-    formats: ['src/img/*.png', 'src/img/*.jpg', 'src/img/*.svg'],
+    formats: 'src/img/*.*',
     fonts: 'src/css/fonts/*.*'
   },
-  clean: ['build/**/*', '!build/.gitignore']
+  clean: ['build/**/*']
 };
 
 /* Конфигурация BrowserSync */
@@ -103,7 +103,7 @@ gulp.task('less', function() {
         paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
     .on('error', lessReporter)
-    .pipe(autoprefixer('> 2%'))
+    .pipe(autoprefixer('last 10 version'))
     .pipe(csscomb())
     .pipe(gulp.dest(projectPath.build.css))
     .pipe(rename({ suffix: '.min' }))
@@ -140,14 +140,14 @@ gulp.task('watch',['webserver'], function(){
   watch([projectPath.watch.style], function(event, cb) {
     gulp.start('less');
   });
-  watch([projectPath.watch.formats], function(event, cb) {
-    gulp.start('images');
+  watch([projectPath.watch.html], function(event, cb) {
+    gulp.start('html');
   });
   watch([projectPath.watch.fonts], function(event, cb) {
     gulp.start('fonts');
   });
-  watch([projectPath.watch.html], function(event, cb) {
-    gulp.start('html');
+  watch([projectPath.watch.formats], function(event, cb) {
+    gulp.start('images');
   });
 });
 
