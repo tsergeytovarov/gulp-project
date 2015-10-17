@@ -1,0 +1,68 @@
+input[type='text'],
+textarea,
+select,
+input[type='password']{ /* поля */
+  box-sizing: border-box;
+  outline: none;
+  width: 100%;
+  font-size: 18px;
+  line-height: 20px;
+  font-family: 'Gotham', sans-serif;
+
+  &:focus{
+
+  }
+}
+
+label{
+  cursor: pointer;
+}
+
+button{
+  cursor: pointer;
+  outline: none;
+}
+
+input::-webkit-input-placeholder{
+
+}
+input::-moz-placeholde{
+
+}
+
+input[type="checkbox"],
+input[type="radio"]{
+  display: none;
+  margin: 20px;
+}
+
+input[type="checkbox"] + label
+input[type="radio"] + label{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+input[type="checkbox"] + label::before
+input[type="radio"] + label::before{
+  content: "";
+  display: inline-block;
+  height: 49px;
+  width: 49px;
+  margin: 0 10px 0 0;
+}
+
+input[type="checkbox"] + label::before{
+  background: url("../img/") no-repeat;
+}
+
+input[type="radio"] + label::before{
+  background: url("../img/") no-repeat;
+}
+
+input[type="checkbox"]:checked + label::before {
+  background: url("../img/") no-repeat;
+}
+
+input[type="radio"]:checked + label::before {
+  background: url("../img/") no-repeat;
+}
