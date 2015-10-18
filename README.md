@@ -12,7 +12,7 @@
 
 ``` sh
 $ git clone https://github.com/tsergeytovarov/grunt-project.git project-name
-$ cd aproject-name
+$ cd project-name
 $ npm install
 ```
 
